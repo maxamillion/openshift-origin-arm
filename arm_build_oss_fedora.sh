@@ -50,7 +50,7 @@ mkdir -p $mock_working_dir
 # Run through the SRPMS
 for i in $(find $1 -name \*.src.rpm)
 do
-  mock -r ${mock_target}-arm $i
+  mock -r ${mock_target} $i
   if [[ "$?" != "0" ]]; then
     failed_builds+=( "$i" )
   else
