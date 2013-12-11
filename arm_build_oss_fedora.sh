@@ -35,9 +35,9 @@ if ! mock --version &> /dev/null; then
   printf "ERROR: mock not installed or not in current \$PATH\n"
   exit 2
 fi
-if [[ ! -f /etc/mock/${mock_target}-arm.cfg ]]; then
+if [[ ! -f /etc/mock/${mock_target}.cfg ]]; then
   printf "ERROR: $mock_target is an invalid mock build target\n"
-  printf "\tNo /etc/mock/${mock_target}-arm.cfg found\n"
+  printf "\tNo /etc/mock/${mock_target}.cfg found\n"
   exit 3
 fi
 
@@ -54,7 +54,9 @@ do
   if [[ "$?" != "0" ]]; then
     failed_builds+=( "$i" )
   else
-    mv /var/lib/mock/${mock_target}-arm/result/*.rpm $mock_working_dir
+    # NOTE: This is subject to failure if the config choses a different rootdir
+    #       but all defaults don't do anything that silly
+    mv /var/lib/mock/${mock_target}/result/*.rpm $mock_working_dir
   fi
 done
 
