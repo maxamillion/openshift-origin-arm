@@ -62,7 +62,6 @@ done
 
 if [[ -z $failed_builds ]]; then
   printf "Build: SUCCESS\n"
-  f_sync
 else
   printf "Build: FAILURE\nThe following packages failed to build:\n"
   for f in ${failed_builds[@]}
