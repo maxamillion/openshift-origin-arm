@@ -18,7 +18,7 @@ f_ctrl_c() {
 trap f_ctrl_c SIGINT
 
 # "Global" variables
-mock_target="fedora-19-armhfp"
+mock_target="fedora-19-armhfp-custom"
 declare -a failed_builds
 
 f_usage() {

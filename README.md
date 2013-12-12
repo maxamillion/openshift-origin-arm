@@ -20,4 +20,13 @@ found in /var/tmp/build_oss_arm/ or a subdirectory therein if you prefer.
 
 Also note, there is no cross compile options at this time. This script is meant
 to be run on the an ARM device running Fedora 19 armv7hl.
+
+For mock, it turns out I need to use a custom config because on of our packages
+depends on another one of our packages and we haven't gotten a chance to get it
+into Fedora proper just yet.
+
+    cp fedora-19-armhfp-custom.cfg /etc/mock/
+    chown root:mock /etc/mock/fedora-19-armhfp-custom.cfg
+
+
     
