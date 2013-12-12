@@ -29,4 +29,8 @@ into Fedora proper just yet.
     chown root:mock /etc/mock/fedora-19-armhfp-custom.cfg
 
 
+Also for the dependencies, the version of libvirt-sandbox needed for Origin on 
+F19 needs a newer version of libvirt so build that one first and then toss it
+in the custom mock repo in /var/tmp/origin-deps/
+
     
