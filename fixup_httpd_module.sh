@@ -13,6 +13,7 @@ for i in $( \
   /etc/httpd/ | awk -F: '{ print $1 }' );
 do  
   sed -i 's/LoadModule mod_auth_digest.so\/mod_auth_digest.so/#LoadModule mod_auth_digest.so\/mod_auth_digest.so/g' $i;  
+  printf "Cleaned up $i\n"
 done
 
 #Fix for rpm installed cartridges not in openshift cartridge repo
@@ -21,6 +22,7 @@ for i in $( \
   /usr/libexec/openshift/cartridges/ | awk -F: '{ print $1 }' );
 do  
   sed -i 's/LoadModule auth_digest_module modules\/mod_auth_digest.so/#LoadModule auth_digest_module modules\/mod_auth_digest.so/g' $i;  
+  printf "Cleaned up $i\n"
 done
 
 # Fix for cartridges installed in the openshift cartridge repo
@@ -29,4 +31,5 @@ for i in $( \
   /var/lib/openshift/.cartridge_repository/ | awk -F: '{ print $1 }' );
 do  
   sed -i 's/LoadModule auth_digest_module modules\/mod_auth_digest.so/#LoadModule auth_digest_module modules\/mod_auth_digest.so/g' $i;  
+  printf "Cleaned up $i\n"
 done
