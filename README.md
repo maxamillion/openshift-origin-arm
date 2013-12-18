@@ -53,10 +53,10 @@ Install puppet and bind
 
 Install dependency puppet modules because we're going to install using the
 Origin puppet master branch so puppet won't auto install the deps for us.
-Then clone the master repo.
+Then clone the master repo. (Need ntp and stdlib, but ntp pulls in stdlib
+for us).
 
     puppet module install puppetlabs/ntp
-    puppet module install puppetlabs/stdlib
     git clone https://github.com/openshift/puppet-openshift_origin.git /etc/puppet/modules/openshift_origin
 
 Now we need to generate the BIND TSIG Key (we will need to put this in our
