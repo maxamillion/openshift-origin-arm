@@ -42,7 +42,7 @@ in the custom mock repo in /var/tmp/origin-deps/
 #####Requirements
 * Fedora 19 ARM (armhfp) and compatible device
 * Spare time
-* Patience (no verified to be ready for prime time, there may be dragons)
+* Patience (not verified to be ready for prime time, there may be dragons)
 
 Most of these instructions are from the 
 [OpenShift Puppet Install Docs]("OpenShift Origin Puppet Install Documentation") 
