@@ -39,6 +39,11 @@ in the custom mock repo in /var/tmp/origin-deps/
 
 ## Installing Origin on ARM
 
+#####Requirements
+* Fedora 19 ARM (armhfp) and compatible device
+* Spare time
+* Patience (no verified to be ready for prime time, there may be dragons)
+
 Most of these instructions are from the 
 [OpenShift Puppet Install Docs]("OpenShift Origin Puppet Install Documentation") 
 with adaptations where needed. The goal is to no eventually no longer require 
