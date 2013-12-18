@@ -131,7 +131,7 @@ new custom cartridges. It's on the list of things TODO to fix the auth_digest
 module in httpd on ARM but didn't want it to block allowing people to try this
 stuff out.
 
-    git clone https://github.com/maxamillion/openshift-origin-arm.git ~/
+    git clone https://github.com/maxamillion/openshift-origin-arm.git ~/openshift-origin-arm
     ~/openshift-origin-arm/fixup_httpd_module.sh
 
 At this point you should be able to reboot your system and have a functional
