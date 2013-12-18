@@ -1,7 +1,5 @@
 #openshift-origin-arm
 
-[OpenShift Puppet Install Docs][http://openshift.github.io/documentation/oo_deployment_guide_puppet.html]
-
 ARM build scripts and misc for building/installing/running OpenShift Origin on 
 Fedora 19 ARM
 
@@ -45,7 +43,7 @@ in the custom mock repo in /var/tmp/origin-deps/
 * Patience (not verified to be ready for prime time, there may be dragons)
 
 Most of these instructions are from the 
-[OpenShift Puppet Install Docs]("OpenShift Origin Puppet Install Documentation") 
+[OpenShift Puppet Install Docs](http://openshift.github.io/documentation/oo_deployment_guide_puppet.html) 
 with adaptations where needed. The goal is to no eventually no longer require 
 custom install documentation.
 
