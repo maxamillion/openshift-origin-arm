@@ -1,5 +1,4 @@
 #openshift-origin-arm
-====================
 
 [OpenShift Puppet Install Docs][http://openshift.github.io/documentation/oo_deployment_guide_puppet.html]
 
