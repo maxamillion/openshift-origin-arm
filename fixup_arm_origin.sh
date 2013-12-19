@@ -51,7 +51,7 @@ if [[ -d /usr/lib64 ]]; then
   printf "Reinstalling OpenShift Origin cartridge local repositories... "
   /usr/sbin/oo-admin-cartridge --recursive -a install -s /usr/libexec/openshift/cartridges/
   printf "\n"
-  printf "Restarting mcollective... "
+  printf "Reloading mcollective... "
   /usr/bin/systemctl reload mcollective.service
   printf "DONE\n"
 fi
