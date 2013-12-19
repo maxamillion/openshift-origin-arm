@@ -93,11 +93,9 @@ about 30 minutes. There's a lot going on here.
      puppet apply --verbose configure_origin.pp
 
 Once this is complete we need to run out "fixup" script because at the time of
-this writing the auth_digest module for httpd doesn't work on F19 ARM. This 
-script will need to be run everytime the cartridges are update or you install
-new custom cartridges. It's on the list of things TODO to fix the auth_digest 
-module in httpd on ARM but didn't want it to block allowing people to try this
-stuff out.
+this writing there are a couple issues that occur during the deploy that are
+still yet to be tracked down to their root cause but the end goal is to work 
+these issues out and not require this step. 
 
     git clone https://github.com/maxamillion/openshift-origin-arm.git ~/openshift-origin-arm
     ~/openshift-origin-arm/fixup_origin_arm.sh

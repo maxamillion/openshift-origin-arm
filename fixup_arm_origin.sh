@@ -1,39 +1,7 @@
 #!/bin/bash
 #
-# Unfortunately as of httpd-2.4.6-2.fc19.armv7hl there is an issue with the 
-# mod_auth_digest module so we need to not load it until this issue is resolved
-#
-#
-# This script effectively does a quick/dirty clean up by just commenting it out
-# from being loaded.
-
-# Fix for httpd configs
-printf "Fixing httpd configurations to disable mod_auth_digest (broken on ARM)... \n"
-for i in $( \
-  egrep -r '^LoadModule auth_digest_module modules\/mod_auth_digest.so' \
-  /etc/httpd/ | awk -F: '{ print $1 }' );
-do  
-  sed -i 's/LoadModule auth_digest_module modules\/mod_auth_digest.so/#LoadModule auth_digest_module modules\/mod_auth_digest.so/g' $i;  
-  printf "Cleaned up $i\n"
-done
-
-#Fix for rpm installed cartridges not in openshift cartridge repo
-for i in $( \
-  egrep -r '^LoadModule auth_digest_module modules\/mod_auth_digest.so' \
-  /usr/libexec/openshift/cartridges/ | awk -F: '{ print $1 }' );
-do  
-  sed -i 's/LoadModule auth_digest_module modules\/mod_auth_digest.so/#LoadModule auth_digest_module modules\/mod_auth_digest.so/g' $i;  
-  printf "Cleaned up $i\n"
-done
-
-# Fix for cartridges installed in the openshift cartridge repo
-for i in $( \
-  egrep -r '^LoadModule auth_digest_module modules\/mod_auth_digest.so' \
-  /var/lib/openshift/.cartridge_repository/ | awk -F: '{ print $1 }' );
-do  
-  sed -i 's/LoadModule auth_digest_module modules\/mod_auth_digest.so/#LoadModule auth_digest_module modules\/mod_auth_digest.so/g' $i;  
-  printf "Cleaned up $i\n"
-done
+# This script effectively does a quick/dirty clean up for issues
+# found in the ARM deploy that don't effect x86_64
 
 # Fix for lib64 on 32-bit system.
 #
