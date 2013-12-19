@@ -108,6 +108,16 @@ to reboot but you'd have to know the order in which to start services and it's
 just easier. (I know, I know ... rebooting linux is terrible, feel free to read
 the docs and learn the order to start services if you care enough)
 
+From here we can install the rhc gem and setup using our local system (or if you
+have DNS setup properly you can do this on an external system)
+
+    gem install rhc
+    rhc setup --server=broker.example.com
+
+From here you should consult the [rhc documentation](https://access.redhat.com/site/documentation/en-US/OpenShift_Online/2.0/html/User_Guide/index.html)
+if you are not familiar with using OpenShift. There is also a lot of great
+material [here.](https://www.openshift.com/developers/documentation)
+
 For more information about OpenShift Origin install with puppet or in general
 please reference the following URLs:
 * http://openshift.github.io/documentation/
