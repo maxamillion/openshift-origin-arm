@@ -98,7 +98,7 @@ still yet to be tracked down to their root cause but the end goal is to work
 these issues out and not require this step. 
 
     git clone https://github.com/maxamillion/openshift-origin-arm.git ~/openshift-origin-arm
-    ~/openshift-origin-arm/fixup_origin_arm.sh
+    ~/openshift-origin-arm/fixup_arm_origin.sh
 
 At this point you should be able to reboot your system and have a functional
 OpenShift Origin PaaS running on ARM. However if you would like, you don't have
