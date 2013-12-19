@@ -9,7 +9,7 @@
 
 # Fix for httpd configs
 for i in $( \
-  grep -r 'LoadModule auth_digest_module modules/mod_auth_digest.so' \
+  egrep -r '^LoadModule auth_digest_module modules\/mod_auth_digest.so' \
   /etc/httpd/ | awk -F: '{ print $1 }' );
 do  
   sed -i 's/LoadModule auth_digest_module modules\/mod_auth_digest.so/#LoadModule auth_digest_module modules\/mod_auth_digest.so/g' $i;  
@@ -18,7 +18,7 @@ done
 
 #Fix for rpm installed cartridges not in openshift cartridge repo
 for i in $( \
-  grep -r 'LoadModule auth_digest_module modules/mod_auth_digest.so' \
+  egrep -r '^LoadModule auth_digest_module modules\/mod_auth_digest.so' \
   /usr/libexec/openshift/cartridges/ | awk -F: '{ print $1 }' );
 do  
   sed -i 's/LoadModule auth_digest_module modules\/mod_auth_digest.so/#LoadModule auth_digest_module modules\/mod_auth_digest.so/g' $i;  
@@ -27,7 +27,7 @@ done
 
 # Fix for cartridges installed in the openshift cartridge repo
 for i in $( \
-  grep -r 'LoadModule auth_digest_module modules/mod_auth_digest.so' \
+  egrep -r '^LoadModule auth_digest_module modules\/mod_auth_digest.so' \
   /var/lib/openshift/.cartridge_repository/ | awk -F: '{ print $1 }' );
 do  
   sed -i 's/LoadModule auth_digest_module modules\/mod_auth_digest.so/#LoadModule auth_digest_module modules\/mod_auth_digest.so/g' $i;  
