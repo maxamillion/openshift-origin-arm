@@ -45,13 +45,14 @@ done
 #
 printf "Making sure /usr/lib64 doesn't exist on 32-bit platform...\n"
 if [[ -d /usr/lib64 ]]; then
-  printf "/usr/lib64 found, removing..."
+  printf "/usr/lib64 found, removing... "
   /usr/bin/rm -fr /usr/lib64
-  printf "\n"
-  printf "Reinstalling OpenShift Origin cartridge local repositories..."
+  printf "DONE\n"
+  printf "Reinstalling OpenShift Origin cartridge local repositories... "
   /usr/sbin/oo-admin-cartridge --recursive -a install -s /usr/libexec/openshift/cartridges/
   printf "\n"
-  printf "Restarting mcollective\n"
-  /usr/bin/systemctl restart mcollective.service
+  printf "Restarting mcollective... "
+  /usr/bin/systemctl reload mcollective.service
+  printf "DONE\n"
 fi
 
