@@ -10,9 +10,9 @@
 # Fix for httpd configs
 for i in $( \
   grep -r 'LoadModule auth_digest_module modules/mod_auth_digest.so' \
-  /etc/httpd/ | awk -F: '{ print $1 }' );
+  /etc/httpd/ | awk -F: '{ print $1 }' ;
 do  
-  sed -i 's/LoadModule mod_auth_digest.so\/mod_auth_digest.so/#LoadModule mod_auth_digest.so\/mod_auth_digest.so/g' $i;  
+  sed -i 's/LoadModule auth_digest_module modules\/mod_auth_digest.so/#LoadModule auth_digest_module modules\/mod_auth_digest.so/g' $i;  
   printf "Cleaned up $i\n"
 done
 
