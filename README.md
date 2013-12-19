@@ -100,7 +100,7 @@ module in httpd on ARM but didn't want it to block allowing people to try this
 stuff out.
 
     git clone https://github.com/maxamillion/openshift-origin-arm.git ~/openshift-origin-arm
-    ~/openshift-origin-arm/fixup_httpd_module.sh
+    ~/openshift-origin-arm/fixup_origin_arm.sh
 
 At this point you should be able to reboot your system and have a functional
 OpenShift Origin PaaS running on ARM. However if you would like, you don't have
