@@ -121,6 +121,10 @@ please reference the following URLs:
 * http://openshift.github.io/documentation/
 * http://openshift.github.io/documentation/oo_deployment_guide_puppet.html
 
+If you run into any issues or have found a resolution to any ARM specific
+issues, feel free to file an issue ticket on this repo or ping me on 
+#openshift-dev on irc.freenode.net, nick: maxamillion
+
 ## Building Origin ARM packages
 
 This is rather crude right now, but depending on the amount of success found 
