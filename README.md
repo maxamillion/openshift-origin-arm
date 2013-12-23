@@ -134,8 +134,9 @@ issues, feel free to file an issue ticket on this repo or ping me on
 There was an old method that included a script from this repo but it's far more
 clean of a method to use mockchain.
 
-Steps to build:
-1. Download all SRPMS and place them somewhere (doesn't matter where, we'll tell
+##### Steps to build:
+###### Step 1 - Prep the SRPMS
+Download all SRPMS and place them somewhere (doesn't matter where, we'll tell
 mockchain where they are.
    
 Optionally you can build SRPMS from source using the following (note, this requires
@@ -152,7 +153,7 @@ you have the `tito` utility installed which you can install with `yum -y install
 Now you will find a bunch of SRPMS in /tmp/tito and you can either mockchain from
 there or move them elsewhere. Your choice.
 
-1. Next up, run the mockchain
+##### Step 2 - Run the mockchain
 The following command will log to your current working dir under mockchain.log,
 we're also adding the Origin dependencies repository to the mock config for the
 chainbuild run. Also, pass --recurse so that mockchain will handle circular dependencies
