@@ -153,9 +153,13 @@ Now you will find a bunch of SRPMS in /tmp/tito and you can either mockchain fro
 there or move them elsewhere. Your choice.
 
 1. Next up, run the mockchain
+The following command will log to your current working dir under mockchain.log,
+we're also adding the Origin dependencies repository to the mock config for the
+chainbuild run. Also, pass --recurse so that mockchain will handle circular dependencies
+for us, which we do have because of the console.
 
     mockchain -r fedora-19-armhfp \
-        --log ./mockchain_log \
+        --log ./mockchain.log \
         -a https://mirror.openshift.com/pub/origin-server/release/3/fedora-19/dependencies/armhfp/ \
         --recurse /tmp/tito/*.src.rpm # Or where ever your SRPMS actually are.
 
