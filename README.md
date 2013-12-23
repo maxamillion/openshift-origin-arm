@@ -131,34 +131,33 @@ issues, feel free to file an issue ticket on this repo or ping me on
 
 ## Building Origin ARM packages
 
-This is rather crude right now, but depending on the amount of success found 
-in the early runs will determine how refined this process gets.
+There was an old method that included a script from this repo but it's far more
+clean of a method to use mockchain.
 
-For now the process is effectively:
+Steps to build:
+1. Download all SRPMS and place them somewhere (doesn't matter where, we'll tell
+mockchain where they are.
+   
+Optionally you can build SRPMS from source using the following (note, this requires
+you have the `tito` utility installed which you can install with `yum -y install tito`)
 
-    git clone https://github.com/maxamillion/openshift-origin-arm.git ~/
-    cd /path/to/dir/of/SRPMs/
-    ln -s ~/openshift-origin-arm/arm_build_oss_fedora.sh ./
-    ./arm_build_oss_fedora.sh
+    git clone https://github.com/openshift/origin-server.git
+    cd origin-server
+    for pkg in $(find . -name \*.spec); do
+      pushd $(dirname $pkg)
+        tito build --test --srpm # use --test if you want nightlies, omit for latest stable tag
+      popd
+    done
 
-Once the build script is done it will tell you that the resulting rpms can be
-found in /var/tmp/build_oss_arm/ or a subdirectory therein if you prefer.
-* NOTE: Every time you run this script it will wipe the contents of 
-/var/tmp/build_oss_arm/ .... so keep that in mind.
+Now you will find a bunch of SRPMS in /tmp/tito and you can either mockchain from
+there or move them elsewhere. Your choice.
 
+1. Next up, run the mockchain
 
-Also note, there is no cross compile options at this time. This script is meant
-to be run on the an ARM device running Fedora 19 armhfp.
+    mockchain -r fedora-19-armhfp \
+        --log ./mockchain_log \
+        -a https://mirror.openshift.com/pub/origin-server/release/3/fedora-19/dependencies/armhfp/ \
+        --recurse /tmp/tito/*.src.rpm # Or where ever your SRPMS actually are.
 
-For mock, it turns out I need to use a custom config because one of our packages
-depends on another one of our packages and we haven't gotten a chance to get it
-into Fedora proper just yet.
-
-    cp fedora-19-armhfp-custom.cfg /etc/mock/
-    chown root:mock /etc/mock/fedora-19-armhfp-custom.cfg
-
-Also for the dependencies, the version of libvirt-sandbox needed for Origin on 
-F19 needs a newer version of libvirt so build that one first and then toss it
-in the custom mock repo in /var/tmp/origin-deps/
-* NOTE: Not needed anymore, this is in the Origin deps repo now.
-
+From here mockchain will output it's progress as well as inform you of where 
+you can find the resulting packages.
