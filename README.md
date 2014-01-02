@@ -19,6 +19,12 @@ Install puppet and bind
 
     yum install -y puppet bind git
 
+Remove firewalld (This should be temporary, a new change recently happened in
+the Origin code base that is incompatible with firewalld and this doc will be 
+updated once that is resolved).
+
+     yum remove firewalld
+
 Install dependency puppet modules because we're going to install using the
 Origin puppet master branch so puppet won't auto install the deps for us.
 Then clone the master repo. (Need ntp and stdlib, but ntp pulls in stdlib
