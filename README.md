@@ -17,7 +17,7 @@ custom install documentation.
 
 Install puppet and bind
 
-    yum install -y puppet bind
+    yum install -y puppet bind git
 
 Install dependency puppet modules because we're going to install using the
 Origin puppet master branch so puppet won't auto install the deps for us.
