@@ -40,8 +40,8 @@ fix_pgdata() {
   # There is a way to prepare this template at build time but there's other work
   # needed to get that functional so this will have to do for now.
   printf "Fixing pgdata for postgresql cartridge...\n"
-  pgdata_tmpdir=$(mktemp -d /tmp/pgdata.XXXXX)
 
+  pgdata_tmpdir=$(su postgres -c "mktemp -d /tmp/pgdata.XXXXX")
   su postgres -c "initdb -D $pgdata_tmpdir"
 
   pushd $pgdata_tmpdir > /dev/null 2>&1
