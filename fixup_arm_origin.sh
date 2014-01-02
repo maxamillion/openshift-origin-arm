@@ -42,7 +42,7 @@ fix_pgdata() {
   printf "Fixing pgdata for postgresql cartridge...\n"
   pgdata_tmpdir=$(mktemp /tmp/pgdata.XXXXX)
 
-  su -c "initdb -D $pgdata_tmpdir"
+  su postgres -c "initdb -D $pgdata_tmpdir"
 
   pushd $pgdata_tmpdir > /dev/null 2>&1
     tar -czf /tmp/pgdata-template.tar.gz .
