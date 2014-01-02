@@ -40,7 +40,9 @@ Set the hostname.
     hostname broker.example.com
 
 Now we need to create our puppet config, I call mine `configure_origin.pp` but
-the name doesn't really matter.
+the name doesn't really matter. Note to change the `YOUR_BIND_TSIG_KEY` with the
+key output from the `cat /var/named/Kexample.com.*.key  | awk '{print $8}'` 
+command we ran above.
 
     class { 'openshift_origin' :
       # Components to install on this host:
