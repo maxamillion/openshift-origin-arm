@@ -46,7 +46,7 @@ fix_pgdata() {
 
   pushd $pgdata_tmpdir > /dev/null 2>&1
     tar -czf /tmp/pgdata-template.tar.gz .
-  popd
+  popd > /dev/null 2>&1
 
   mv /tmp/pgdata-template.tar.gz \
     /usr/libexec/openshift/cartridges/postgresql/versions/9.2/conf/pgdata-template.tar.gz
