@@ -128,7 +128,7 @@ issues, feel free to file an issue ticket on this repo or ping me on
 `#openshift-dev` on `irc.freenode.net`, nick: `maxamillion`
 
 ##### Known Issues
-1. postgresql cartridge does not work at this time on ARM (due to pgdata arch specific optimizations, [this pull request should resolve the issue](https://github.com/openshift/origin-server/pull/4392)) 
+1. postgresql cartridge does not work at this time on ARM (due to pgdata arch specific optimizations, [this pull request should resolve the issue](https://github.com/openshift/origin-server/pull/4392)) (fixup script handles this in the mean time)
 1. /usr/lib64 gets created during deployment process but not sure why (fixup script handles fixing this)
 
 ## Building Origin ARM packages
