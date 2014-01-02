@@ -40,15 +40,13 @@ fix_pgdata() {
   # There is a way to prepare this template at build time but there's other work
   # needed to get that functional so this will have to do for now.
   printf "Fixing pgdata for postgresql cartridge...\n"
-  su postgres
-    pgdata_tmpdir=$(mktemp /tmp/pgdata.XXXXX)
+  pgdata_tmpdir=$(mktemp /tmp/pgdata.XXXXX)
 
-    initdb -D $pgdata_tmpdir
+  su -c "initdb -D $pgdata_tmpdir"
 
-    pushd $pgdata_tmpdir > /dev/null 2>&1
-      tar -czf /tmp/pgdata-template.tar.gz .
-    popd
-  exit #exit postgres
+  pushd $pgdata_tmpdir > /dev/null 2>&1
+    tar -czf /tmp/pgdata-template.tar.gz .
+  popd
 
   mv /tmp/pgdata-template.tar.gz \
     /usr/libexec/openshift/cartridges/postgresql/versions/9.2/conf/pgdata-template.tar.gz
